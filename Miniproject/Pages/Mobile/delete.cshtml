@@ -1,0 +1,32 @@
+﻿@page
+@using System.Data.SqlClient;
+
+
+@{
+
+
+    try
+    {
+        String id = Request.Query["id"];
+        string connectionString = "Data Source=(localdb)\\ProjectModels;Initial Catalog=MobileDb;Integrated Security=True;Pooling=False";
+        using (SqlConnection connection = new SqlConnection(connectionString))
+        {
+            connection.Open();
+            string sql = "Delete from MobileCompany Where id=@id";
+
+            using (SqlCommand command = new SqlCommand(sql, connection))
+            {
+                command.Parameters.AddWithValue("@id",id);
+
+                command.ExecuteNonQuery();
+            }
+        }
+
+    }
+
+    catch(Exception ex)
+    {
+        
+    }
+    Response.Redirect("/Mobile/Index");
+}

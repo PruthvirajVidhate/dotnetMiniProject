@@ -1,0 +1,65 @@
+﻿@page
+@model Miniproject.Pages.Mobile.CreateModel
+@{
+}
+<br>
+<h1>Fill Details</h1>
+
+@if (Model.errorMessage.Length > 0)
+{
+    <div class='alert alert-warning alert-dismissible fade show' role='alert'>
+
+        <strong>@Model.errorMessage</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+    </div>
+}
+<form method="POST">
+
+    
+    
+    <div class="mb-3">
+        <label  class="form-label">Brand</label>
+        <input type="text" class="form-control" name="brand" value="@Model.mobileinfoC.brand">
+    </div>
+
+    <div class="mb-3">
+        <label  class="form-label">Ram</label>
+        <input type="text" class="form-control" name="ram" value="@Model.mobileinfoC.ram">
+    </div>
+
+    <div class="mb-3">
+        <label  class="form-label">Storage</label>
+        <input type="text" class="form-control" name="storage" value="@Model.mobileinfoC.storage">
+    </div>
+
+    <div class="mb-3">
+        <label  class="form-label">Price</label>
+        <input type="text" class="form-control" name="price" value="@Model.mobileinfoC.price">
+    </div>
+
+   
+
+    @if (Model.successMessage.Length > 0)
+    {
+        <div class='row mb-3'>
+            <div class="col-sm-9">
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+
+                    <strong>@Model.successMessage</strong>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="close"></button>
+                </div>
+            </div>
+
+        </div>
+
+    }
+    <div class="row mb-3">
+
+        <div class="offset-sm-3 col-sm-3 d-grid">
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </div>
+
+
+
+</form>

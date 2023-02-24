@@ -1,0 +1,49 @@
+﻿@page
+@model Miniproject.Pages.Mobile.IndexModel
+@{
+}
+
+<br >
+<h1>List Of Mobile</h1>
+<a class='btn btn-primary btn-sm' href='/Mobile/Create'>New Mobile</a>
+
+<table class="table">
+    <thead>
+        
+            <tr>
+              <th>ID</th>
+              <th>BRAND</th>
+              <th>RAM</th>
+              <th>STORAGE</th>
+              <th>PRICE</th>
+
+            </tr>
+
+    </thead>
+    <tbody>
+        @foreach(var item in Model.mobileInfos)
+        {
+            <tr>
+                <td>@item.id</td>
+                <td>@item.brand</td>
+                <td>@item.ram</td>
+                <td>@item.storage</td>
+                <td>@item.price</td>
+                <td>
+                    <a class='btn btn-primary btn-sm' href='/Mobile/Edit?id=@item.id'>Edit</a>
+                    <a class='btn btn-danger btn-sm' href='/Mobile/Delete?id=@item.id'>Delete</a>
+
+
+
+                </td>
+
+
+
+            </tr>
+        }
+
+    </tbody>
+
+
+
+</table>
